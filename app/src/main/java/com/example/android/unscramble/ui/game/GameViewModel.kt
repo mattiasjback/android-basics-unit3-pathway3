@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 class GameViewModel : ViewModel() {
 
     private var _currentWordCount = 0
+    public val currentWordCount: Int
+        get() = _currentWordCount
+
     private var wordsList: MutableList<String> = mutableListOf()
     private lateinit var currentWord: String
 
