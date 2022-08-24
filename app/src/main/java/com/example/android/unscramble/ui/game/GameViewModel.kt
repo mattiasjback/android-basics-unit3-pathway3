@@ -61,7 +61,7 @@ class GameViewModel : ViewModel() {
         } else false
     }
 
-    fun increaseScore() {
+    private fun increaseScore() {
         _score += SCORE_INCREASE
     }
 
@@ -72,5 +72,12 @@ class GameViewModel : ViewModel() {
         } else {
             false
         }
+    }
+
+    fun reinitializeData() {
+        _score = 0
+        _currentWordCount = 0
+        wordsList.clear()
+        getNextWord()
     }
 }
