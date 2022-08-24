@@ -57,4 +57,8 @@ class GameViewModel : ViewModel() {
             true
         } else false
     }
+
+    fun increaseScore() {
+        _score += SCORE_INCREASE
+    }
 }
