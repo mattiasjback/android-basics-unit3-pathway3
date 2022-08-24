@@ -16,9 +16,7 @@
 
 package com.example.android.unscramble.ui.game
 
-import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,16 +49,7 @@ class GameFragment : Fragment() {
         // Inflate the layout XML file and return a binding object instance
         binding = DataBindingUtil.inflate(inflater, R.layout.game_fragment, container, false)
 
-        Log.d("GameFragment", "GameFragment created/re-created")
-        Log.d("GameFragment", "Word: ${viewModel.currentScrambledWord.value} " +
-                "Score: ${viewModel.score.value} WordCount: ${viewModel.currentWordCount.value}")
-
         return binding.root
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.d("GameFragment", "GameFragment destroyed")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -93,6 +82,10 @@ class GameFragment : Fragment() {
         } else {
             setErrorTextField(true)
         }
+
+        val postit = true
+
+        if (postit) "cloud" else "android"
     }
 
     /*
@@ -105,15 +98,6 @@ class GameFragment : Fragment() {
         } else {
             showFinalScoreDialog()
         }
-    }
-
-    /*
-     * Gets a random word for the list of words and shuffles the letters in it.
-     */
-    private fun getNextScrambledWord(): String {
-        val tempWord = allWordsList.random().toCharArray()
-        tempWord.shuffle()
-        return String(tempWord)
     }
 
     /*
