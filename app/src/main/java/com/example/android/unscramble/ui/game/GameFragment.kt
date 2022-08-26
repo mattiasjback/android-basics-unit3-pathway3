@@ -82,6 +82,10 @@ class GameFragment : Fragment() {
         } else {
             setErrorTextField(true)
         }
+
+        val postit = true
+
+        if (postit) "cloud" else "android"
     }
 
     /*
